@@ -5,7 +5,7 @@ import { currentPage } from 'domain/store/selectors/main';
 
 export default function render(){
   const app = document.getElementById('main');
-  morhpdom(app, '<div></div>')
+  morhpdom(app, '<stuff></stuff>')
 }
 
 declare const module: {
