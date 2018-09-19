@@ -32,4 +32,4 @@ class CustomTag extends LitElement {
   }
 }
 
-customElements.define('y-home', CustomTag);
+customElements.define('y-router', CustomTag);
