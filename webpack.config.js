@@ -4,7 +4,7 @@ module.exports = {
   entry: "./src/index.ts",
   devtool: "source-map",
   output: {
-    path: path.resolve(__dirname, "build"),
+    path: path.resolve(__dirname, "dist"),
     publicPath: "/",
     filename: "bundle.js"},
 
