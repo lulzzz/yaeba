@@ -1,32 +1,25 @@
-import { LitElement, html } from '@polymer/lit-element';
+import { LitElement, html, property } from '@polymer/lit-element';
+import { getState } from 'domain/store/selectors/main';
 
 class CustomTag extends LitElement {
-  mood: string
-  state: any
+  state: object
   constructor() {
     super();
+    this.state = getState();
   }
 
-  static get properties() {
+
+  static get propertis() {
     return {
-      mood: { type: String },
       state: { type: Object }
     };
   }
-  _style() {
-    return html`<style>
-      .mood { color: green; }
-    </style>`;
-  }
   _html(){
-    return html`
-      Web Components are <span class="mood">${this.state}</span>!
-     `;
+    return html`<y-home state=${this.state}></y-home>`;
   }
   render() {
     console.log(this.state)
     return html`
-    ${this._style()}
     ${this._html()}
     `
   }

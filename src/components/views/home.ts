@@ -1,15 +1,13 @@
 import { LitElement, html } from '@polymer/lit-element';
 
-class CustomTag extends LitElement {
-  mood: string
-  state: any
+class Homepage extends LitElement {
+  state: object
   constructor() {
     super();
   }
 
   static get properties() {
     return {
-      mood: { type: String },
       state: { type: Object }
     };
   }
@@ -20,7 +18,7 @@ class CustomTag extends LitElement {
   }
   _html(){
     return html`
-      Web Components are <span class="mood">${this.state}</span>!
+      Web Components are ${this.state}
      `;
   }
   render() {
@@ -32,4 +30,4 @@ class CustomTag extends LitElement {
   }
 }
 
-customElements.define('y-home', CustomTag);
+customElements.define('y-home', Homepage);
