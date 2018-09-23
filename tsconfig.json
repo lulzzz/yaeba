@@ -10,6 +10,7 @@
       "jsx": "react",
       "module": "esnext",
       "declaration": true,
+      "experimentalDecorators": true,
       "moduleResolution": "node"
     },
     "exclude": [

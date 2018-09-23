@@ -5,22 +5,20 @@ class CustomTag extends LitElement {
   state: object
   constructor() {
     super();
-    this.state = getState();
+    this.state = {
+      message: 'hello world'
+    }
   }
 
-
-  static get propertis() {
+  static get properties() {
     return {
       state: { type: Object }
     };
   }
-  _html(){
-    return html`<y-home state=${this.state}></y-home>`;
-  }
+
   render() {
-    console.log(this.state)
     return html`
-    ${this._html()}
+    <y-home .state='${this.state}'></y-home>
     `
   }
 }
