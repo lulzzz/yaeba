@@ -1,12 +1,14 @@
 
-import { updateCurrentPage } from 'domain/store/reducers/main';
+import { updateCurrentPage } from 'domain/store/reducers';
 import page from 'page';
 
-const homePage = (res, req) => { updateCurrentPage('HOME_PAGE'); }
-const examplePage = (res, req) => { updateCurrentPage('EXAMPLE_PAGE'); }
+const ENTRY = (res, req) => { updateCurrentPage('ENTRY'); }
+const ADD = (res, req) => { updateCurrentPage('ADD'); }
+const SEARCH = (res, req) => { updateCurrentPage('SEARCH'); }
 
-page('/', homePage)
-page('/example', examplePage)
+page('/', ENTRY)
+page('/add', ADD)
+page('/search', SEARCH)
 
 export default function startRouters() {
  page.start();
