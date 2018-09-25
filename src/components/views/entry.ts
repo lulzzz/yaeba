@@ -24,6 +24,7 @@ class ViewTag extends LitElement {
         <button onClick=${this.onclick}>${entry.buttons.male}</button>
         <button onClick=${this.onclick} >${entry.buttons.female}</button>
         <button onClick=${this.onclick} >${entry.buttons.whatever}</button>
+        <y-navbar></y-navbar>
       </div>
     `
   }

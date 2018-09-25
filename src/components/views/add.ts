@@ -15,7 +15,6 @@ class ViewTag extends LitElement {
     };
   }
 
-
   render() {
     const { currentPage } = this.state;
     return html`
