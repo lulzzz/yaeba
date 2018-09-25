@@ -8,18 +8,19 @@ class ViewTag extends LitElement {
 
   constructor() {
     super();
+    this.onclick = iLikeToWear;
+    this.state = getState();
   }
-
   static get properties() {
     return {
-      state: { type: Object },
+      state: { type: Object }
     };
   }
-
   render() {
     const { entry } = this.state;
     return html`
       <div class="page">
+        <p><y-test text=${entry.i_like}></y-test></p>
         <button onClick=${this.onclick}>${entry.buttons.male}</button>
         <button onClick=${this.onclick} >${entry.buttons.female}</button>
         <button onClick=${this.onclick} >${entry.buttons.whatever}</button>

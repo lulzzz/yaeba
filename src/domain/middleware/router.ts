@@ -4,7 +4,7 @@ import page from 'page';
 
 const ENTRY = (res, req) => { updateCurrentPage('ENTRY'); }
 const ADD = (res, req) => { updateCurrentPage('ADD'); }
-const SEARCH = (res, req) => { updateCurrentPage('SEARCH'); }
+const SEARCH = (res, req) => { console.log('search'); updateCurrentPage('SEARCH'); }
 
 page('/', ENTRY)
 page('/add', ADD)

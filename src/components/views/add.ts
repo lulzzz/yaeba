@@ -7,7 +7,6 @@ class ViewTag extends LitElement {
 
   constructor() {
     super();
-    this.state = getState();
   }
 
   static get properties() {

@@ -14,7 +14,6 @@ class CustomTag extends LitElement {
   static get properties() {
     return {
       state: { type: Object },
-      changed: { type: String },
       currentPage: {type: String }
     };
   }
@@ -22,6 +21,7 @@ class CustomTag extends LitElement {
     //add diff here
     this.state = getState();
     this.render();
+    console.log('Updated', this.state.currentPage)
   }
   _html(currentPage){
     switch (currentPage) {
