@@ -4,6 +4,7 @@ import 'tags'
 import startRouters from 'domain/middleware/router';
 import morphdom from 'morphdom';
 
+
 function _render(){
   const state = getState();
   document.getElementById('main').firstElementChild.setAttribute('currentPage', state.currentPage);

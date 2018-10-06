@@ -17,7 +17,8 @@ class Icon extends LitElement {
   }
 
   _getIcon(){
-    this.parser.innerHTML = feather.icons[this.name].toSvg();
+    const f = feather.icons[this.name];
+    this.parser.innerHTML = f ? f.toSvg() : null;
     return this.parser.firstChild
   }
   render() {

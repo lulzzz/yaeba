@@ -13,8 +13,8 @@ const defaultState = {
   },
   add: {
     title: 'Example Page'
-  }
-
+  },
+  products: []
 }
 
 export const store = createAtom(defaultState);

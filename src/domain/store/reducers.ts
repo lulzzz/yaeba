@@ -12,3 +12,10 @@ export function updateText(text){
     }
   }))
 }
+
+export function updateProducts(data){
+   return store.swap(oldstate => ({
+    ...oldstate,
+    products: data
+  }))
+}

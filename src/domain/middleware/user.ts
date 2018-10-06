@@ -1,7 +1,6 @@
 import page from 'page';
-import { updateText } from '../store/reducers';
 
-export function iLikeToWear(){
-  console.log('clicked')
-  page('/search');
+export function onBoarding(){
+  debugger
+  page('/add')
 }

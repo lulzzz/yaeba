@@ -13,13 +13,14 @@ class NavBar extends LitElement {
     }
   }
 
+
   render() {
 
     return html`
       <div class="navbar">
-            <y-icon name="circle"></y-icon>
-            <i data-feather="circle"></i>
-            <i data-feather="circle"></i>
+            <y-icon name="new"></y-icon>
+            <y-icon name="list"></y-icon>
+            <y-icon name=""></y-icon>
       </div>
     `
   }

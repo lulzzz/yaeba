@@ -5,3 +5,4 @@ import 'components/views/add';
 // Elements
 import 'components/elements/navbar';
 import 'components/elements/icon';
+import 'components/elements/product-item';

@@ -1,9 +1,14 @@
 import { LitElement, html, property } from '@polymer/lit-element';
 import { getState } from 'domain/store/main';
+import { updateProducts } from 'domain/store/reducers';
+
+
+
 
 class CustomTag extends LitElement {
   state: {
     currentPage: string
+    products: any;
   }
   currentPage: string;
   constructor() {
@@ -21,7 +26,6 @@ class CustomTag extends LitElement {
     //add diff here
     this.state = getState();
     this.render();
-    console.log('Updated', this.state.currentPage)
   }
   _html(currentPage){
     switch (currentPage) {
