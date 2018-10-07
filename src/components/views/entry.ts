@@ -3,6 +3,7 @@ import { getState } from 'domain/store/main';
 import { onBoarding } from 'domain/middleware/user';
 import { coreGradients } from 'styles/lib';
 import { buttonBase } from 'styles/button';
+import { pageBase } from 'styles/page';
 
 class ViewTag extends LitElement {
   state: any
@@ -19,11 +20,7 @@ class ViewTag extends LitElement {
   }
   styles(){
     return html `<style>
-      .page {
-         display: block;
-        padding: 10px;
-        float: left;
-      }
+      ${pageBase()}
       p {
         font-weight: bold;
         font-size: 26px;
@@ -58,9 +55,9 @@ class ViewTag extends LitElement {
         <img class="logo" src="logo.png" />
         <p>${entry.i_like}</p>
         ${this.styles()}
-        <button class="male" @click=${onBoarding}>${entry.buttons.male}</button>
-        <button class="female" @click=${onBoarding}>${entry.buttons.female}</button>
-        <button class="whatever" @click=${onBoarding} >${entry.buttons.whatever}</button>
+        <button class="male" @click=${() => { onBoarding('male') }}>${entry.buttons.male}</button>
+        <button class="female" @click=${() => { onBoarding('female') }}>${entry.buttons.female}</button>
+        <button class="whatever" @click=${() => { onBoarding('lilbitch') }} >${entry.buttons.whatever}</button>
       </div>
     `
   }

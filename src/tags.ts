@@ -2,6 +2,7 @@
 import 'components/views/router';
 import 'components/views/entry';
 import 'components/views/add';
+import 'components/views/create';
 // Elements
 import 'components/elements/navbar';
 import 'components/elements/icon';

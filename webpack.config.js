@@ -17,11 +17,14 @@ module.exports = {
         styles: path.resolve(__dirname, 'src/styles'),
     }
   },
-
   module: {
     rules: [
       {test: /\.tsx?$/, loader: "awesome-typescript-loader"},
       {enforce: "pre", test: /\.js$/, loader: "source-map-loader"}
     ]
-  }
+  },
+  devServer: {
+    hot:true,
+    historyApiFallback: true,
+  },
 };

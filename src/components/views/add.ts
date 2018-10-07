@@ -23,6 +23,7 @@ class ViewTag extends LitElement {
     };
   }
 
+
   render() {
     const { products } = this.state;
     const list = products.map(p => html`<y-product-item .item="${p}" ></y-product-item>`);

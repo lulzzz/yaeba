@@ -25,6 +25,7 @@ class CustomTag extends LitElement {
   attributeChangedCallback() {
     //add diff here
     this.state = getState();
+    console.log('[state update]', this.state);
     this.render();
   }
   _html(currentPage){
@@ -35,6 +36,8 @@ class CustomTag extends LitElement {
        return html`<y-entry .state='${this.state}'></y-entry>`
       case 'SEARCH':
         return html`<y-search .state='${this.state}'></y-search>`
+      case 'CREATE':
+        return html`<y-create .state='${this.state}'></y-create>`
     }
   }
 

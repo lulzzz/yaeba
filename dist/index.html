@@ -8,6 +8,18 @@
   <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
 
   <style>
+    html {
+    overflow: scroll;
+    overflow-x: hidden;
+}
+      ::-webkit-scrollbar {
+          width: 0px;  /* remove scrollbar space */
+          background: transparent;  /* optional: just make scrollbar invisible */
+      }
+      /* optional: show position indicator in red */
+      ::-webkit-scrollbar-thumb {
+          /* background: #FF0000; */
+      }
     body {
       /* background-image: url('./bg.png'); */
       background: #FBF8FF;
@@ -15,6 +27,7 @@
       background-position: top center;
       text-align: center;
       font-size: 40px;
+      margin: 0;
       font-family: 'Quicksand', sans-serif;
     }
     #logo {
@@ -25,6 +38,11 @@
       width: 250px;
       display: inline-block;
       background-repeat: no-repeat;
+    }
+    #main {
+     position: absolute;
+     height: 97vh;
+     width: 100%;
     }
 
   </style>
