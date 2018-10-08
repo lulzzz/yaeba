@@ -6,9 +6,12 @@ import {
   updateCreationHips,
   updateCreationLegs,
   updateCreationFeet,
-  updateAdditionLocation
+  updateAdditionLocation,
+  updateProducts
  } from 'domain/store/reducers';
 import { getState } from '../store/main';
+import { getProducts } from './network';
+import { normalizeProduct } from './normalize';
 
 export function onBoarding(gender: string){
   updateGender(gender);
@@ -18,10 +21,16 @@ export function onLocationChoice(location:string) {
   updateAdditionLocation(location);
   page('/add');
 }
-export function updateUser(location, val) {
-  const state = getState()
+export async function onloadGetProducts(){
+  await getProducts().then(products => {
+    const normalizedProducts = products.map(product => normalizeProduct(product));
+    updateProducts(normalizedProducts);
+  })
+}
+export function addAddtion(val) {
+  const state = getState();
   switch (state.addition.location) {
-    case 'head':
+    case 'gender':
       updateGender(val);
       break;
       case 'head':

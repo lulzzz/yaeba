@@ -22,6 +22,7 @@ class ViewTag extends LitElement {
     return html`
       <div class="page">
         ${this.styles()}
+        <p>Choose a body part</p>
         <div class="create ${user.gender}">
           <div class="part head" @click="${() => onLocationChoice('head')}"></div>
           <div class="part torso" @click="${() => onLocationChoice('torso')}"></div>
@@ -29,7 +30,6 @@ class ViewTag extends LitElement {
           <div class="part legs" @click="${() => onLocationChoice('legs')}"></div>
           <div class="part feet" @click="${() => onLocationChoice('feet')}"></div>
         </div>
-        <p>I pick location</p>
       </div>
     `
   }
@@ -40,14 +40,14 @@ class ViewTag extends LitElement {
         overflow:hidden;
       }
       p {
-        font-weight: bold;
+        font-weight: 800;
         font-size: 26px;
         color: #383873;
         margin: 0 0 16px 0;
         padding: 0;
       }
       .part {
-        border-bottom: 2px dotted #FBF8FF;
+        border-bottom: 2px dotted #EFDFFF;
         position: absolute;
         width: 54%;
         left: 20%;
@@ -64,7 +64,7 @@ class ViewTag extends LitElement {
         background-image: url('assets/female.png');
       }
       .head {
-        top: 4vh;
+        top: 10vh;
         height: 85px;
         transform: rotate(-15deg);
       }
@@ -72,22 +72,22 @@ class ViewTag extends LitElement {
         display:none;
       }
       .torso {
-        top: 18vh;
+        top: 24vh;
         height: 110px;
         transform: rotate(-15deg);
       }
       .hips {
-        top: 34vh;
+        top: 38vh;
         height: 110px;
         transform: rotate(-15deg);
       }
       .legs {
-        top: 50vh;
+        top: 55vh;
         height: 110px;
         transform: rotate(-15deg);
       }
       .feet {
-        top: 67vh;
+        top: 72vh;
         height: 110px;
         transform: rotate(-15deg);
       }

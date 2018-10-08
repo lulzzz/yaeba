@@ -25,10 +25,12 @@ export function updateGender(gender: string) {
   return store.swap(oldstate => ({
    ...oldstate,
       user: {
+        ...oldstate.user,
         gender: gender
       }
   }));
 }
+
 
 export function updateCreationHead(head: product) {
   return store.swap(oldstate => ({
@@ -36,7 +38,7 @@ export function updateCreationHead(head: product) {
       user: {
       ...oldstate.user,
       creation: {
-        ...oldstate.creation,
+        ...oldstate.user.creation,
         head: head
       }
     }
@@ -49,7 +51,7 @@ export function updateCreationTorso(torso: product) {
       user: {
       ...oldstate.user,
       creation: {
-        ...oldstate.creation,
+        ...oldstate.user.creation,
         torso: torso
       }
     }
@@ -62,7 +64,7 @@ export function updateCreationHips(hips: product) {
       user: {
       ...oldstate.user,
       creation: {
-        ...oldstate.creation,
+        ...oldstate.user.creation,
         hips: hips
       }
     }
@@ -75,7 +77,7 @@ export function updateCreationLegs(hips: product) {
       user: {
       ...oldstate.user,
       creation: {
-        ...oldstate.creation,
+        ...oldstate.user.creation,
         hips: hips
       }
     }
@@ -88,7 +90,7 @@ export function updateCreationFeet(feet: product) {
       user: {
       ...oldstate.user,
       creation: {
-        ...oldstate.creation,
+        ...oldstate.user.creation,
         feet: feet
       }
     }

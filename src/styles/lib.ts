@@ -58,3 +58,17 @@ export function grid(sheet){
     '.col-12-sm': `width: ${width}`
   }
 }
+
+export function mansoryBase(){
+  return `
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+  `
+}
+export function mansoryBrick() {
+  return `
+   flex: auto;
+   min-width: 150px;
+  `
+}

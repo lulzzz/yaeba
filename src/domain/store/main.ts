@@ -27,7 +27,6 @@ const defaultState = {
   addition: {
     location: 'head',
     id: '',
-    product: defaultProduct
   },
   entry: {
     title: 'yaeba',
