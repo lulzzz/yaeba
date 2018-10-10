@@ -1,8 +1,8 @@
 const padding = {
   top: '16px',
   bottom: '16px',
-  left: '28px',
-  right: '28px'
+  left: '0px',
+  right: '0px'
 }
 const borderRadius = '30px';
 

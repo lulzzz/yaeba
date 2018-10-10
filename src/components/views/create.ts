@@ -1,7 +1,7 @@
 import { LitElement, html, svg } from '@polymer/lit-element';
 import { getState } from 'domain/store/main';
 import { onBoarding, onLocationChoice } from 'domain/middleware/user';
-import { coreGradients } from 'styles/lib';
+import { coreGradients, mansoryBrick } from 'styles/lib';
 import { pageBase } from 'styles/page';
 
 class ViewTag extends LitElement {
@@ -19,11 +19,18 @@ class ViewTag extends LitElement {
 
   render() {
     const { user } = this.state;
+    const outfit = user.creation;
+    console.log(outfit.head)
     return html`
       <div class="page">
         ${this.styles()}
         <p>Choose a body part</p>
         <div class="create ${user.gender}">
+          <div class="product head"><y-product-item .item="${outfit.head}"></y-product-item></div>
+          <div class="product torso"></div>
+          <div class="product hips"></div>
+          <div class="product legs"></div>
+          <div class="product feet"></div>
           <div class="part head" @click="${() => onLocationChoice('head')}"></div>
           <div class="part torso" @click="${() => onLocationChoice('torso')}"></div>
           <div class="part hips" @click="${() => onLocationChoice('hips')}"></div>
@@ -46,6 +53,12 @@ class ViewTag extends LitElement {
         margin: 0 0 16px 0;
         padding: 0;
       }
+      y-product-item {
+            height: 58vw;
+            padding: 0 4px;
+            margin: 0 4px 16px 4px;
+            ${mansoryBrick()}
+          }
       .part {
         border-bottom: 2px dotted #EFDFFF;
         position: absolute;
@@ -59,12 +72,13 @@ class ViewTag extends LitElement {
          background-size:contain;
          overflow: hidden;
          background-repeat: no-repeat;
+         position:relative;
       }
       .female {
         background-image: url('assets/female.png');
       }
       .head {
-        top: 10vh;
+        top: 0vh;
         height: 85px;
         transform: rotate(-15deg);
       }
@@ -72,22 +86,22 @@ class ViewTag extends LitElement {
         display:none;
       }
       .torso {
-        top: 24vh;
+        top: 14vh;
         height: 110px;
         transform: rotate(-15deg);
       }
       .hips {
-        top: 38vh;
-        height: 110px;
+        top: 32vh;
+        height: 86px;
         transform: rotate(-15deg);
       }
       .legs {
-        top: 55vh;
+        top: 45vh;
         height: 110px;
         transform: rotate(-15deg);
       }
       .feet {
-        top: 72vh;
+        top: 62vh;
         height: 110px;
         transform: rotate(-15deg);
       }

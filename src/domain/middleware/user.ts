@@ -23,6 +23,7 @@ export function onLocationChoice(location:string) {
 }
 export async function onloadGetProducts(){
   await getProducts().then(products => {
+    console.log(products)
     const normalizedProducts = products.map(product => normalizeProduct(product));
     updateProducts(normalizedProducts);
   })
@@ -35,6 +36,7 @@ export function addAddtion(val) {
       break;
       case 'head':
         updateCreationHead(val);
+        page('/create')
       break;
        case 'torso':
         updateCreationTorso(val);

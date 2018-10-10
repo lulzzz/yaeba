@@ -15,6 +15,9 @@ export const coreGradients = {
   BC: cross(colors.blue, colors.cyan),
   PC: cross(colors.pink, colors.cyan),
   PY: cross(colors.pink, colors.yellow),
+  DF: fade(colors.shades.greyD1),
+  LF: fade(colors.shades.pinkL1),
+  PF: fade(colors.pinkL2)
 };
 
 export const sizes = {

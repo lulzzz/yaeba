@@ -31,7 +31,7 @@ class ViewTag extends LitElement {
       .logo {
         width: auto;
         height: 35vh;
-        margin: 64px auto;
+        margin: 6vh auto;
       }
         button {
           ${buttonBase()}
@@ -55,9 +55,9 @@ class ViewTag extends LitElement {
         <img class="logo" src="logo.png" />
         <p>${entry.i_like}</p>
         ${this.styles()}
-        <button class="male" @click=${() => { onBoarding('male') }}>${entry.buttons.male}</button>
+        <button class="male" @click=${() => { onBoarding('female') }}>${entry.buttons.male}</button>
         <button class="female" @click=${() => { onBoarding('female') }}>${entry.buttons.female}</button>
-        <button class="whatever" @click=${() => { onBoarding('lilbitch') }} >${entry.buttons.whatever}</button>
+        <button class="whatever" @click=${() => { onBoarding('female') }} >${entry.buttons.whatever}</button>
       </div>
     `
   }

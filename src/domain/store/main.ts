@@ -1,6 +1,6 @@
 import { createAtom } from 'js-atom';
 export type product = {
-  thumbnailUrl: '',
+  img: '',
   title: ''
 }
 export type outfit = {
@@ -11,7 +11,7 @@ export type outfit = {
   feet: product,
 }
 const defaultProduct: product = {
-  thumbnailUrl: '',
+  img: '',
   title: ''
 }
 const defaultOutfit: outfit = {
