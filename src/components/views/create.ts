@@ -25,12 +25,12 @@ class ViewTag extends LitElement {
       <div class="page">
         ${this.styles()}
         <p>Choose a body part</p>
+          <y-product-item class="product head" .item="${outfit.head}"></y-product-item>
+          <y-product-item class="product torso" .item="${outfit.torso}"></y-product-item>
+          <y-product-item class="product hips" .item="${outfit.hips}"></y-product-item>
+          <y-product-item class="product legs" .item="${outfit.legs}"></y-product-item>
+          <y-product-item class="product feet" .item="${outfit.feet}"></y-product-item>
         <div class="create ${user.gender}">
-          <div class="product head"><y-product-item .item="${outfit.head}"></y-product-item></div>
-          <div class="product torso"></div>
-          <div class="product hips"></div>
-          <div class="product legs"></div>
-          <div class="product feet"></div>
           <div class="part head" @click="${() => onLocationChoice('head')}"></div>
           <div class="part torso" @click="${() => onLocationChoice('torso')}"></div>
           <div class="part hips" @click="${() => onLocationChoice('hips')}"></div>
@@ -74,33 +74,54 @@ class ViewTag extends LitElement {
          background-repeat: no-repeat;
          position:relative;
       }
+      .product {
+        position: absolute;
+        transform: scale(0.5);
+        right: 0;
+      }
+      .product.head {
+        top:0;
+      }
+      .product.torso {
+        top:100px;
+      }
+       .product.hips {
+        top:200px;
+      }
+      .product.legs {
+        top: 300px;
+      }
+      .product.feet {
+        top: 400px;
+      }
+
       .female {
         background-image: url('assets/female.png');
       }
-      .head {
+      .part.head {
         top: 0vh;
         height: 85px;
         transform: rotate(-15deg);
       }
-      .neck {
+      .part.neck {
         display:none;
       }
-      .torso {
+      .part.torso {
         top: 14vh;
         height: 110px;
         transform: rotate(-15deg);
       }
-      .hips {
+      .part.hips {
         top: 32vh;
         height: 86px;
         transform: rotate(-15deg);
       }
-      .legs {
+      .part.legs {
         top: 45vh;
         height: 110px;
         transform: rotate(-15deg);
       }
-      .feet {
+      .part.feet {
         top: 62vh;
         height: 110px;
         transform: rotate(-15deg);

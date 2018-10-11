@@ -33,6 +33,7 @@ class ViewTag extends LitElement {
       <div class="page">
         <style>
           .page {
+            background: #fff;
             text-align:center;
             ${mansoryBase()}
             padding-top: 8px;

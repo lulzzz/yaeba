@@ -36,18 +36,18 @@ class ProductItem extends LitElement {
         background-position: center;
         width: 100%;
         height: 100%;
-        font-size: 24px;
+        font-size: 16px;
         font-weight:bold;
-        color: #383873;
+        color: #fff;
         position:relative;
       }
       .fade {
-        opacity: 1;
+        opacity: 0.5;
         height: 60%;
         bottom: 0;
         position: absolute;
         width: 100%;
-        background : ${coreGradients.PF}
+        background : ${coreGradients.DF}
       }
       .info {
        position: absolute;
@@ -64,14 +64,15 @@ class ProductItem extends LitElement {
 
   render() {
     const { item } = this;
+    if(!item.img) { return null }
     return html`<div style="background-image:url(${item.img})" class="product" @click="${() => { addAddtion(item) }}">
       ${this.styles()}
       <div class="fade"></div>
       <div class="info">
       <span>¥${item.price}</span>
-      <span><y-icon name="heart"></y-icon> ${item.likes}</span>
       </div>
     </div>`
+      // <!-- <span><y-icon name="heart"></y-icon> ${item.likes}</span> -->
   }
 }
 

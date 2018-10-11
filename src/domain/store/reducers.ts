@@ -71,14 +71,14 @@ export function updateCreationHips(hips: product) {
   }));
 }
 
-export function updateCreationLegs(hips: product) {
+export function updateCreationLegs(legs: product) {
   return store.swap(oldstate => ({
    ...oldstate,
       user: {
       ...oldstate.user,
       creation: {
         ...oldstate.user.creation,
-        hips: hips
+        legs: legs
       }
     }
   }));

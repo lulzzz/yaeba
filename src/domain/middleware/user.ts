@@ -40,15 +40,19 @@ export function addAddtion(val) {
       break;
        case 'torso':
         updateCreationTorso(val);
+        page('/create')
       break;
       case 'hips':
         updateCreationHips(val);
+        page('/create')
       break;
      case 'legs':
         updateCreationLegs(val);
+        page('/create')
       break;
-     case 'hips':
+     case 'feet':
         updateCreationFeet(val);
+        page('/create')
       break;
     default:
       break;
