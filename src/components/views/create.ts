@@ -25,11 +25,13 @@ class ViewTag extends LitElement {
       <div class="page">
         ${this.styles()}
         <p>Choose a body part</p>
+        <div class="products">
           <y-product-item class="product head" .item="${outfit.head}"></y-product-item>
           <y-product-item class="product torso" .item="${outfit.torso}"></y-product-item>
           <y-product-item class="product hips" .item="${outfit.hips}"></y-product-item>
           <y-product-item class="product legs" .item="${outfit.legs}"></y-product-item>
           <y-product-item class="product feet" .item="${outfit.feet}"></y-product-item>
+          </div>
         <div class="create ${user.gender}">
           <div class="part head" @click="${() => onLocationChoice('head')}"></div>
           <div class="part torso" @click="${() => onLocationChoice('torso')}"></div>
@@ -53,12 +55,6 @@ class ViewTag extends LitElement {
         margin: 0 0 16px 0;
         padding: 0;
       }
-      y-product-item {
-            height: 58vw;
-            padding: 0 4px;
-            margin: 0 4px 16px 4px;
-            ${mansoryBrick()}
-          }
       .part {
         border-bottom: 2px dotted #EFDFFF;
         position: absolute;
@@ -73,28 +69,21 @@ class ViewTag extends LitElement {
          overflow: hidden;
          background-repeat: no-repeat;
          position:relative;
+         margin: 0 auto;
+         max-width: 405px;
+      }
+      .products {
+        position: absolute;
+        top:0;
+        height: 100%;
+        right: 0px;
+        display:flex;
+        flex-direction: column;
+        justify-content:flex-start;
       }
       .product {
-        position: absolute;
-        transform: scale(0.5);
-        right: 0;
+        min-height:18.6vh;
       }
-      .product.head {
-        top:0;
-      }
-      .product.torso {
-        top:100px;
-      }
-       .product.hips {
-        top:200px;
-      }
-      .product.legs {
-        top: 300px;
-      }
-      .product.feet {
-        top: 400px;
-      }
-
       .female {
         background-image: url('assets/female.png');
       }
