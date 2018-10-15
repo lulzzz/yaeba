@@ -1,16 +1,20 @@
 
 import { updateCurrentPage } from 'domain/store/reducers';
 import page from 'page';
+import { onloadGetProducts } from 'domain/middleware/user';
 
 
-const ENTRY = (res, req) => { updateCurrentPage('ENTRY'); }
-const ADD = (res, req) => { updateCurrentPage('ADD'); }
-const SEARCH = (res, req) => { updateCurrentPage('SEARCH'); }
+const ENTRY = (res, req) => {
+  updateCurrentPage('ENTRY');
+}
+const ADD = (res, req) => {
+  onloadGetProducts();
+  updateCurrentPage('ADD');
+ }
 const CREATE = (res, req) => { updateCurrentPage('CREATE'); }
 
 page('/', ENTRY)
 page('/add', ADD)
-page('/search', SEARCH)
 page('/create', CREATE)
 
 export default function startRouters() {

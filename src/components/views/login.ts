@@ -18,20 +18,6 @@ class ViewTag extends LitElement {
       state: { type: Object },
     };
   }
-
-  render() {
-    const { entry } = this.state;
-    return html`
-      <div class="page">
-        <img class="logo" src="/assets/logo.png" />
-        <p>${entry.i_like}</p>
-        ${this.styles()}
-        <button class="male" @click=${() => { onBoarding('female') }}>${entry.buttons.male}</button>
-        <button class="female" @click=${() => { onBoarding('female') }}>${entry.buttons.female}</button>
-        <button class="whatever" @click=${() => { onBoarding('female') }} >${entry.buttons.whatever}</button>
-      </div>
-    `
-  }
   styles(){
     return html `<style>
       ${pageBase()}
@@ -61,6 +47,19 @@ class ViewTag extends LitElement {
         .female { background: ${coreGradients.BP}; }
         .whatever { background: ${coreGradients.PC}; }
     </style>`
+  }
+  render() {
+    const { entry } = this.state;
+    return html`
+      <div class="page">
+        <img class="logo" src="/assets/logo.png" />
+        <p>${entry.i_like}</p>
+        ${this.styles()}
+        <button class="male" @click=${() => { onBoarding('female') }}>${entry.buttons.male}</button>
+        <button class="female" @click=${() => { onBoarding('female') }}>${entry.buttons.female}</button>
+        <button class="whatever" @click=${() => { onBoarding('female') }} >${entry.buttons.whatever}</button>
+      </div>
+    `
   }
 }
 

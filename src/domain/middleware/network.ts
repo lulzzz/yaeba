@@ -11,7 +11,7 @@ const CATEGORIES = {
 
 export async function getProducts() {
   const params = `consumer_key=${consumer_key}&consumer_secret=${consumer_secret}`;
-  const resp = await fetch(`https://yaeba-backend.herokuapp.com/wp-json/wc/v2/products?${params}`, {
+  const resp = await fetch(`https://yaeba.tk/wp-json/wc/v2/products?${params}`, {
   });
   return resp.json();
 }

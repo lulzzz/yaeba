@@ -4,7 +4,6 @@ import { mansoryBase, mansoryBrick } from 'styles/lib';
 
 class ViewTag extends LitElement {
   state: any
-  products: any;
   constructor() {
     super();
   }
@@ -17,32 +16,28 @@ class ViewTag extends LitElement {
   static get properties() {
     return {
       state: { type: Object },
-      products: { type: Object }
     };
   }
 
 
   render() {
-    const { products } = this.state;
-    const list = products.map(p => html`<y-product-item .item="${p}" ></y-product-item>`);
     return html`
       <div class="page">
+        <button ><h1>To the Clothes! </h1>
+        <h3>start making outfits</h3>
+        </>
+        <button>
+        <h1>Easier Checkout</h1>
+        <h3>Fill in payment info now </h3>
+        </button>
         <style>
           .page {
-            /* background: #fff; */
             text-align:center;
             ${mansoryBase()}
             padding-top: 8px;
             padding-bottom: 8px;
           }
-          y-product-item {
-            height: 58vw;
-            padding: 0 4px;
-            margin: 0 4px 16px 4px;
-            ${mansoryBrick()}
-          }
         </style>
-        ${list}
       </div>
     `
   }

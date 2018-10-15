@@ -1,23 +1,15 @@
 // Firebase config but keys in CONST file
+import { FIREBASE_CONFIG } from 'vars';
 const firebase = require("firebase");
-// Required for side-effects
 require("firebase/firestore");
-firebase.initializeApp({
-  apiKey: '### FIREBASE API KEY ###',
-  authDomain: '### FIREBASE AUTH DOMAIN ###',
-  projectId: '### CLOUD FIRESTORE PROJECT ID ###'
-});
 
+firebase.initializeApp(FIREBASE_CONFIG);
 // Initialize Cloud Firestore through Firebase
-var db = firebase.firestore();
-
-// Disable deprecated features
-db.settings({
+export const firestore = firebase.firestore();
+firestore.settings({
   timestampsInSnapshots: true
 });
-// Default store
 
-//js atom init
 
 //aliexpress api?
 
