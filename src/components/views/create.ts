@@ -80,12 +80,6 @@ class ViewTag extends LitElement {
         margin: 0 0 16px 0;
         padding: 0;
       }
-      y-product-item {
-            height: 58vw;
-            padding: 0 4px;
-            margin: 0 4px 16px 4px;
-            ${mansoryBrick()}
-          }
       .part {
         border-bottom: 2px dotted #EFDFFF;
         position: absolute;
@@ -101,27 +95,18 @@ class ViewTag extends LitElement {
          position:relative;
          margin: 0 auto;
       }
-      .product {
+      .products {
         position: absolute;
-        transform: scale(0.5);
-        right: 0;
-      }
-      .product.head {
         top:0;
+        height: 100%;
+        right: 0px;
+        display:flex;
+        flex-direction: column;
+        justify-content:flex-start;
       }
-      .product.torso {
-        top:100px;
+      .product {
+        min-height:18.6vh;
       }
-       .product.hips {
-        top:200px;
-      }
-      .product.legs {
-        top: 300px;
-      }
-      .product.feet {
-        top: 400px;
-      }
-
       .female {
         background-image: url(${female});
       }

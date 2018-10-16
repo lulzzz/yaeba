@@ -19,27 +19,30 @@ class ProductItem extends LitElement {
     this.render();
   }
 
-  styles() {
+  styles(bg) {
     return html`<style>
+    :host {
+    }
       :host {
+       background-image: url(${bg});
         overflow:hidden;
-        float:left;
-        border-radius: 15px;
-        /* box-shadow: 0 5px 5px rgba(0,0,0,0.4) */
-      }
-      .product {
-        overflow:hidden;
-        float:left;
         border-radius: 15px;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        width: 100%;
-        height: 100%;
         font-size: 16px;
         font-weight:bold;
         color: #fff;
         position:relative;
+        min-width: 100px;
+        min-height: 200px;
+      }
+      .product {
+        position:absolute;
+        top:0;
+        left:0;
+        width: 100%;
+        height: 100%;
       }
       .fade {
         opacity: 0.5;
@@ -65,8 +68,8 @@ class ProductItem extends LitElement {
   render() {
     const { item } = this;
     if(!item.img) { return null }
-    return html`<div style="background-image:url(${item.img})" class="product" @click="${() => { addAddtion(item) }}">
-      ${this.styles()}
+    return html`<div class="product" @click="${() => { addAddtion(item) }}">
+      ${this.styles(item.img)}
       <div class="fade"></div>
       <div class="info">
       <span>¥${item.price}</span>
