@@ -13,7 +13,10 @@ import { getState } from '../store/main';
 import { getProducts } from './network';
 import { normalizeProduct } from './normalize';
 
-export function onBoarding(gender: string){
+export function onBoarding(step: string){
+  page(step);
+}
+export function onClickSetGender(gender: string){
   updateGender(gender);
   page('/create');
 }

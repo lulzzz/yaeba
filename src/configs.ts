@@ -1,6 +1,6 @@
 // Firebase config but keys in CONST file
 import { FIREBASE_CONFIG } from 'vars';
-const firebase = require("firebase");
+export const firebase = require("firebase");
 require("firebase/firestore");
 
 firebase.initializeApp(FIREBASE_CONFIG);

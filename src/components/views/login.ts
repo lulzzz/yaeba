@@ -4,10 +4,10 @@ import { onBoarding } from 'domain/middleware/user';
 import { coreGradients } from 'styles/lib';
 import { buttonBase } from 'styles/button';
 import { pageBase } from 'styles/page';
+import { googleSignIn, facebookSignIn } from 'domain/middleware/login';
 
 class ViewTag extends LitElement {
   state: any
-  pageRouter: any;
 
   constructor() {
     super();
@@ -43,25 +43,26 @@ class ViewTag extends LitElement {
           font-weight: bold;
           margin-bottom: 14px;
         }
-        .male { background: ${coreGradients.RY}; }
-        .female { background: ${coreGradients.BP}; }
-        .whatever { background: ${coreGradients.PC}; }
+        .google { background: ${coreGradients.RY}; }
+        .facebook { background: ${coreGradients.BP}; }
+        /* .whatever { background: ${coreGradients.PC}; } */
     </style>`
   }
   render() {
-    const { entry } = this.state;
+    const { entry, user } = this.state;
     return html`
       <div class="page">
         <img class="logo" src="/assets/logo.png" />
-        <p>${entry.i_like}</p>
+        <img width="50px" height="50px" src="${user.photoURL}" />
+        <p>${user.displayName}</p>
         ${this.styles()}
-        <button class="male" @click=${() => { onBoarding('female') }}>${entry.buttons.male}</button>
-        <button class="female" @click=${() => { onBoarding('female') }}>${entry.buttons.female}</button>
-        <button class="whatever" @click=${() => { onBoarding('female') }} >${entry.buttons.whatever}</button>
+        <button class="google" @click=${googleSignIn}>Google</button>
+        <button class="facebook" @click=${facebookSignIn}>Facebook</button>
+        <button class="whatever" @click=${() => { onBoarding('/gender') }} >Sign up</button>
       </div>
     `
   }
 }
 
 
-customElements.define('y-entry', ViewTag);
+customElements.define('y-login', ViewTag);

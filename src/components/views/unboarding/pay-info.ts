@@ -43,4 +43,4 @@ class ViewTag extends LitElement {
   }
 }
 
-customElements.define('y-add', ViewTag);
+customElements.define('y-pay-info', ViewTag);

@@ -1,42 +1,65 @@
-import { LitElement, html } from '@polymer/lit-element';
+import { LitElement, html, svg } from '@polymer/lit-element';
 import { getState } from 'domain/store/main';
-import { mansoryBase, mansoryBrick } from 'styles/lib';
+import { onBoarding } from 'domain/middleware/user';
+import { coreGradients } from 'styles/lib';
+import { buttonBase } from 'styles/button';
+import { pageBase } from 'styles/page';
 
 class ViewTag extends LitElement {
   state: any
+  pageRouter: any;
+
   constructor() {
     super();
-  }
-  attributeChangedCallback() {
-    //add diff here
     this.state = getState();
-    this.render();
   }
-
   static get properties() {
     return {
       state: { type: Object },
     };
   }
-
-
+  styles(){
+    return html `<style>
+      ${pageBase()}
+      p {
+        font-weight: bold;
+        font-size: 26px;
+        color: #383873;
+        margin: 0 0 16px 0;
+        padding: 0;
+      }
+      .logo {
+        width: auto;
+        height: 35vh;
+        margin: 6vh auto;
+      }
+        button {
+          ${buttonBase()}
+          background: ${coreGradients.BC};
+          clear:both;
+          display:block;
+          width: 100%;
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 14px;
+        }
+        .male { background: ${coreGradients.RY}; }
+        .female { background: ${coreGradients.BP}; }
+        .whatever { background: ${coreGradients.PC}; }
+    </style>`
+  }
   render() {
+    const { entry } = this.state;
     return html`
       <div class="page">
-        <button ><h1>Female</h1></button>
-        <button ><h1>Male</h1></button>
-        <button ><h1>Whatever<br>I want!<br>b#tch</h1></button>
-        <style>
-          .page {
-            text-align:center;
-            ${mansoryBase()}
-            padding-top: 8px;
-            padding-bottom: 8px;
-          }
-        </style>
+        ${this.styles()}
+        <button class="male" @click=${() => { onBoarding('female') }}>${entry.buttons.male}</button>
+        <button class="female" @click=${() => { onBoarding('female') }}>${entry.buttons.female}</button>
+        <button class="whatever" @click=${() => { onBoarding('female') }} >${entry.buttons.whatever}</button>
       </div>
     `
   }
 }
 
-customElements.define('y-add', ViewTag);
+
+customElements.define('y-gender', ViewTag);

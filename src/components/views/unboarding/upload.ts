@@ -39,4 +39,4 @@ class ViewTag extends LitElement {
   }
 }
 
-customElements.define('y-add', ViewTag);
+customElements.define('y-upload', ViewTag);

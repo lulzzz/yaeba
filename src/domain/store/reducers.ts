@@ -96,3 +96,32 @@ export function updateCreationFeet(feet: product) {
     }
   }));
 }
+
+export function updateEmail(email: string) {
+  return store.swap(oldstate => ({
+    ...oldstate,
+       user: {
+       ...oldstate.user,
+       email
+     }
+   }));
+}
+export function updatePhotoUrl(photoURL: string) {
+  return store.swap(oldstate => ({
+    ...oldstate,
+       user: {
+       ...oldstate.user,
+       photoURL
+     }
+   }));
+}
+
+export function updateDisplayName(displayName: string) {
+  return store.swap(oldstate => ({
+    ...oldstate,
+       user: {
+       ...oldstate.user,
+       displayName
+     }
+   }));
+}

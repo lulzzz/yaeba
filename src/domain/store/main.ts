@@ -23,7 +23,7 @@ const defaultOutfit: outfit = {
 }
 
 const defaultState = {
-  currentPage:  'ENTRY',
+  currentPage:  'LOGIN',
   addition: {
     location: 'head',
     id: '',
@@ -39,6 +39,10 @@ const defaultState = {
   },
   user: {
     gender: 'female',
+    email: "",
+    displayName: "",
+    photoURL: "",
+    refreshToken: "",
     creation: {...defaultOutfit},
     outfits: {...defaultOutfit},
     closets: {...defaultOutfit},
