@@ -49,20 +49,19 @@ class ${type}Tag extends LitElement {
 
 
   render() {
-    return html`
+    return html \`
       <div class="page">
         <style>
         </style>
-        ${list}
       </div>
-    `
+    \`
   }
 }
 
 customElements.define('y-${name}', ${type}Tag);
 
   `
-  return fs.writeFile(`src/components/${type}/${name}.ts`, JSON.stringify({name, type}), err => {
+  return fs.writeFile(`src/components/${type}/${name}.ts`, template, err => {
     if (err) return console.log(err);
   });
 });

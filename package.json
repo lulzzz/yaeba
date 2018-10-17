@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --content-base dist --hot --inline",
     "deploy": "surge ./dist http://yaeba.surge.sh",
-    "build": "webpack -p"
+    "build": "webpack -p",
+    "new-tag": "node .scripts/cli.js"
   },
   "repository": {
     "type": "git",

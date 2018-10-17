@@ -49,7 +49,10 @@ class CustomTag extends LitElement {
   }
 
   render() {
-    return html`${this._html(this.state.currentPage)}`
+    return html`
+    <y-debug-bar></y-debug-bar>
+    ${this._html(this.state.currentPage)}
+    `
   }
 }
 customElements.define('y-router', CustomTag);

@@ -28,9 +28,19 @@ const defaultState = {
     location: 'head',
     id: '',
   },
+  tutorial: {
+    step1:{
+      title: "Lets build<br>some outfit<br>ya sexy beast!"
+    },
+    step2: {
+      title: "press the top <br>for size & varients",
+      img: "",
+      subtitle: "Press to add<br>to your body      "
+    }
+  },
   entry: {
     title: 'yaeba',
-    i_like: 'I like to wear...',
+    iLike: 'I like to wear...',
     buttons: {
       male: 'Male Clothes',
       female: 'Female Clothes',
