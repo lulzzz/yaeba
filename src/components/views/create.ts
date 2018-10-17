@@ -1,11 +1,11 @@
 import { LitElement, html, svg } from '@polymer/lit-element';
-import { getState } from 'domain/store/main';
+import { getState, outfit } from 'domain/store/main';
 import { onBoarding, onLocationChoice } from 'domain/middleware/user';
 import { coreGradients, mansoryBrick } from 'styles/lib';
 import { pageBase } from 'styles/page';
 import { female } from 'styles/img';
 
-type outfit = {
+type outfitType = {
   head: any,
   torso: any,
   hips: any,
@@ -29,7 +29,7 @@ class ViewTag extends LitElement {
   hasOutfit(outfit){
     return Object.keys(outfit).filter(part => outfit[part].id > 0).length > 0;
   }
-  outfit(outfit) {
+  outfit(outfit: outfitType) {
     if(this.hasOutfit(outfit)) {
       return html`<div class="outfit">
         <y-product-item class="product head" .item="${outfit.head}"></y-product-item>
@@ -40,7 +40,7 @@ class ViewTag extends LitElement {
       </div>`
     }
   }
-  model(gender){
+  model(gender:string){
     return html`
      <div class="create ${gender}">
           <div class="part head" @click="${() => onLocationChoice('head')}"></div>
