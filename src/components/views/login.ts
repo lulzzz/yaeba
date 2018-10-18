@@ -56,7 +56,7 @@ class ViewTag extends LitElement {
         ${this.styles()}
         <button class="google" @click=${googleSignIn}>Google</button>
         <button class="facebook" @click=${facebookSignIn}>Facebook</button>
-        <button class="whatever" @click=${() => { onBoarding('/gender') }} >Sign up</button>
+        <button disabled class="whatever" @click=${() => { onBoarding('/gender') }} >Sign up</button>
       </div>
     `
   }

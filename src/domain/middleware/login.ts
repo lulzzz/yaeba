@@ -41,7 +41,7 @@ export function facebookSignIn() {
     // The signed-in user info.
     const { displayName, photoURL, email } = result.user;
     updateDisplayName(displayName)
-    updatePhotoUrl(photoURL)
+    updatePhotoUrl(`${photoURL}?type=large`)
     updateEmail(email)
     updateCurrentPage('UPLOAD');
     // ...

@@ -1,16 +1,14 @@
 import { LitElement, html } from '@polymer/lit-element';
 import { getState } from 'domain/store/main';
 import { mansoryBase, mansoryBrick, coreGradients } from 'styles/lib';
-
+import { updateDisplayName } from 'domain/store/reducers';
+import { buttonBase } from 'styles/button';
 class ViewTag extends LitElement {
   state: any
+  displayName: string;
   constructor() {
     super();
-  }
-  attributeChangedCallback() {
-    //add diff here
-    this.state = getState();
-    this.render();
+    this.displayName = '';
   }
 
   static get properties() {
@@ -21,11 +19,18 @@ class ViewTag extends LitElement {
   photoUpload(url) {
     if(url.length > 0){
       return html`
-        <img width="100px" height="100px" src="${url}" />
+        <img src="${url}" />
       `
     } else {
       return html`<div class="fake-img"><y-icon name="camera"></y-icon></div>`
     }
+  }
+  onChange(event: any, displayName) {
+    this.displayName = event.target.innerText;
+  }
+  onSave(displayName) {
+    console.log(displayName);
+    updateDisplayName(displayName);
   }
 
 
@@ -35,27 +40,49 @@ class ViewTag extends LitElement {
       <div class="page">
         <div class="card">
         <div class="inner">
-        <p>put your face <br>in the face hole</p>
+        <h3>put your face <br>in the face hole</h3>
         ${this.photoUpload(user.photoURL)}
-        <input value="${user.displayName}" type="text" />
+        <p contenteditable @input="${(e) => this.onChange(e, this.displayName)}">${user.displayName}</p>
+        <button @click="${() => this.onSave(this.displayName)}"><y-icon name="save"></y-icon>Save</button>
         </div>
         </div>
         <style>
+        img,
         .fake-img {
           background: ${coreGradients.BP};
-          width: 250px;
-          height: 250px;
+          width: 240px;
+          height: 240px;
           overflow:hidden;
           border-radius: 100%;
+          padding: 10px;
           color: #fff;
-          display: table-cell;
-          vertical-align: middle;
+          margin:0 auto;
+        }
+        button {
+          ${buttonBase()}
+          background: ${coreGradients.RY};
+          clear:both;
+          display:block;
+          width: 100%;
+          font-size: 24px;
+          font-weight: bold;
+          margin-bottom: 14px;
+        }
+        y-icon {
+          display:inline-block;
+          width: 24px;
+          height: 24px;
         }
         .fake-img y-icon {
           margin-left: auto;
           margin-right: auto;
-          width: 50px;
-          height: 50px;
+          display:block;
+          width: 80px;
+          height: 100%;
+        }
+        h3 {
+          font-weight: bold;
+          color: #383873;
         }
         input,
          p {
