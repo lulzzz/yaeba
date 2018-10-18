@@ -21,8 +21,6 @@ class ProductItem extends LitElement {
 
   styles(bg) {
     return html`<style>
-    :host {
-    }
       :host {
        background-image: url(${bg});
         overflow:hidden;
@@ -60,8 +58,6 @@ class ProductItem extends LitElement {
       right: auto;
       width: 100%;
       }
-      .price {}
-      .likes {}
     </style>`
   }
 
