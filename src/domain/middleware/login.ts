@@ -2,7 +2,8 @@ import { firebase } from 'configs';
 import {
   updateDisplayName,
   updatePhotoUrl,
-  updateEmail
+  updateEmail,
+  updateCurrentPage
  } from 'domain/store/reducers'
 export function googleSignIn(){
   const provider = new firebase.auth.GoogleAuthProvider();
@@ -15,6 +16,7 @@ export function googleSignIn(){
     updateDisplayName(displayName)
     updatePhotoUrl(photoURL)
     updateEmail(email)
+    updateCurrentPage('UPLOAD');
     // ...
   }).catch(function(error) {
     // Handle Errors here.
@@ -41,6 +43,7 @@ export function facebookSignIn() {
     updateDisplayName(displayName)
     updatePhotoUrl(photoURL)
     updateEmail(email)
+    updateCurrentPage('UPLOAD');
     // ...
   }).catch(function(error) {
     // Handle Errors here.

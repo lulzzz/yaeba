@@ -49,12 +49,10 @@ class ViewTag extends LitElement {
     </style>`
   }
   render() {
-    const { entry, user } = this.state;
     return html`
       <div class="page">
         <img class="logo" src="/assets/logo.png" />
-        <img width="50px" height="50px" src="${user.photoURL}" />
-        <p>${user.displayName}</p>
+
         ${this.styles()}
         <button class="google" @click=${googleSignIn}>Google</button>
         <button class="facebook" @click=${facebookSignIn}>Facebook</button>
