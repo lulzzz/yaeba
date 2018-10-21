@@ -3,9 +3,10 @@ import { FIREBASE_CONFIG } from 'vars';
 export const firebase = require("firebase");
 require("firebase/firestore");
 
-firebase.initializeApp(FIREBASE_CONFIG);
+const app = firebase.initializeApp(FIREBASE_CONFIG);
 // Initialize Cloud Firestore through Firebase
-export const firestore = firebase.firestore();
+export const firestore = firebase.firestore(app);
+firebase.firestore.setLogLevel("debug");
 firestore.settings({
   timestampsInSnapshots: true
 });

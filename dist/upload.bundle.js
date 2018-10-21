@@ -1,57 +1,21 @@
-import { LitElement, html } from '@polymer/lit-element';
-import { getState } from 'domain/store/main';
-import { mansoryBase, mansoryBrick, coreGradients } from 'styles/lib';
-import { updateDisplayName } from 'domain/store/reducers';
-import { buttonBase } from 'styles/button';
-class ViewTag extends LitElement {
-  state: any
-  displayName: string;
-  constructor() {
-    super();
-    this.displayName = '';
-  }
-
-  static get properties() {
-    return {
-      state: { type: Object },
-    };
-  }
-  photoUpload(url) {
-    if(url.length > 0){
-      return html`
-        <img src="${url}" />
-      `
-    } else {
-      return html`<div class="fake-img"><y-icon name="camera"></y-icon></div>`
-    }
-  }
-  onChange(event: any, displayName) {
-    this.displayName = event.target.innerText;
-  }
-  onSave(displayName) {
-    console.log(displayName);
-    updateDisplayName(displayName);
-  }
-
-
-  render() {
-    const { user } = this.state;
-    return html`
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{34:function(t,i,e){"use strict";e.r(i);var a=e(3),o=e(6),n=e(4),d=e(12);customElements.define("y-upload",class extends a.a{constructor(){super(),this.displayName=""}static get properties(){return{state:{type:Object}}}photoUpload(t){return t.length>0?a["b"]`
+        <img src="${t}" />
+      `:a["b"]`<div class="fake-img"><y-icon name="camera"></y-icon></div>`}onChange(t,i){this.displayName=t.target.innerText}onSave(t){console.log(t),Object(n.h)(t)}render(){const{user:t}=this.state;return a["b"]`
       <div class="page">
         <div class="card">
         <div class="inner">
         <h3>put your face <br>in the face hole</h3>
-        ${this.photoUpload(user.photoURL)}
-        <p contenteditable @input="${(e) => this.onChange(e, this.displayName)}">${user.displayName}</p>
-        <y-button icon="save" @click="${() => this.onSave(this.displayName)}">Save</y-button>
+        ${this.photoUpload(t.photoURL)}
+        <p contenteditable @input="${t=>this.onChange(t,this.displayName)}">${t.displayName}</p>
+        <button @click="${()=>this.onSave(this.displayName)}"><y-icon name="save"></y-icon>Save</button>
         </div>
         </div>
         <style>
         img,
         .fake-img {
-          background: ${coreGradients.BP};
-          width: 150px;
-          height: 150px;
+          background: ${o.a.BP};
+          width: 240px;
+          height: 240px;
           overflow:hidden;
           border-radius: 100%;
           padding: 10px;
@@ -59,8 +23,8 @@ class ViewTag extends LitElement {
           margin:0 auto;
         }
         button {
-          ${buttonBase()}
-          background: ${coreGradients.RY};
+          ${Object(d.a)()}
+          background: ${o.a.RY};
           clear:both;
           display:block;
           width: 100%;
@@ -83,7 +47,6 @@ class ViewTag extends LitElement {
         h3 {
           font-weight: bold;
           color: #383873;
-          font-size: 30px;
         }
         input,
          p {
@@ -107,7 +70,7 @@ class ViewTag extends LitElement {
           .inner {
             margin-left: auto;
             margin-right: auto;
-            width: 80vw;
+            width: 400px;
             /*whatever width you want*/
           }
           .card {
@@ -116,8 +79,5 @@ class ViewTag extends LitElement {
           }
         </style>
       </div>
-    `
-  }
-}
-
-customElements.define('y-upload', ViewTag);
+    `}})}}]);
+//# sourceMappingURL=upload.bundle.js.map

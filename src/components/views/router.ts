@@ -29,8 +29,10 @@ class CustomTag extends LitElement {
     this.render();
   }
   _html(currentPage){
-    console.log(currentPage)
     switch (currentPage) {
+      case 'OUTFITS':
+        import(/* webpackChunkName: "product-item" */'components/views/outfits');
+        return html`<y-outfits .state='${this.state}'></y-outfits>`;
       case 'GENDER':
         return html`<y-gender .state='${this.state}'></y-gender>`;
       case 'PAYINFO':

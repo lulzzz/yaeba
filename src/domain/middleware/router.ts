@@ -2,14 +2,23 @@
 import { updateCurrentPage } from 'domain/store/reducers';
 import page from 'page';
 import { onloadGetProducts } from 'domain/middleware/user';
+import { isFirebaseLoggedIn } from './login';
 
 const LOGIN = (ctx, next) => {
   //Check if logged in
-  updateCurrentPage('LOGIN');
+  const user = isFirebaseLoggedIn();
+  if(user) {
+    //
+    updateCurrentPage('OUTFITS');
+  } else {
+    updateCurrentPage('LOGIN');
+  }
 }
 const ADD = (ctx, next) => {
   onloadGetProducts();
   //Set default view
+  import(/* webpackChunkName: "product-item" */'components/elements/product-item')
+  import(/* webpackChunkName: "add" */'components/views/add');
   updateCurrentPage('ADD');
  }
 const ADD_VIEW = (ctx, next) => {
@@ -19,9 +28,11 @@ console.log(ctx.params.view);
 updateCurrentPage('ADD');
 }
 const CREATE = (ctx, next) => {
+  import(/* webpackChunkName: "create" */'components/views/create');
   updateCurrentPage('CREATE');
 }
 const ONBOARDING = (ctx, next) => {
+  import(/* webpackChunkName: "upload" */'components/views/onboarding/upload');
   updateCurrentPage(ctx.params.sub.toUpperCase());
 }
 const OUTFITS = (ctx, next) => {

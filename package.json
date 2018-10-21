@@ -4,7 +4,7 @@
   "description": "a aliexpress fashion app",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --content-base dist --hot --inline",
+    "start": "webpack-dev-server --content-base dist --hot --inline --development",
     "deploy": "surge ./dist http://yaeba.surge.sh",
     "build": "webpack -p",
     "new-tag": "node .scripts/cli.js"
@@ -28,6 +28,7 @@
     "feather-icons": "^4.7.3",
     "firebase": "^5.5.1",
     "js-atom": "^0.4.0",
+    "js-cookie": "^2.2.0",
     "lit-html": "^0.11.4",
     "morphdom": "^2.3.3",
     "nanohtml": "^1.2.4",

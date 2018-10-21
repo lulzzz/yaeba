@@ -12,8 +12,16 @@
   <style>
     html {
     overflow: scroll;
+    user-select: none;
     overflow-x: hidden;
-}
+}     ::-moz-selection {
+    background-color:Transparent;
+    color:transparent;
+    }
+    ::selection {
+    background-color:Transparent;
+    color: transparent;
+    }
       ::-webkit-scrollbar {
           width: 0px;  /* remove scrollbar space */
           background: transparent;  /* optional: just make scrollbar invisible */

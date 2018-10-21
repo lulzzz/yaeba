@@ -15,13 +15,17 @@ class viewsTag extends LitElement {
   static get properties() {
     return {};
   }
-
+  styles() {
+    return html`
+      <style></style>
+    `
+  }
 
   render() {
     return html `
       <div class="page">
-        <style>
-        </style>
+        ${this.styles()}
+        <h3>outfits</h3>
       </div>
     `
   }
@@ -29,4 +33,3 @@ class viewsTag extends LitElement {
 
 customElements.define('y-outfits', viewsTag);
 
-  
