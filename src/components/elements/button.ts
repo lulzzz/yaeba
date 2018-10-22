@@ -6,6 +6,7 @@ import { buttonBase } from 'styles/button';
 
 class elementsTag extends LitElement {
   icon: string;
+  color: string;
   constructor() {
     super();
   }
@@ -16,16 +17,18 @@ class elementsTag extends LitElement {
 
   static get properties() {
     return {
-      icon: { type: String}
+      icon: { type: String},
+      color: { type: String, defaultValue: 'RO'}
+
     };
   }
 
-  styles() {
+  styles(color) {
     return html`
       <style>
           button {
           ${buttonBase()}
-          background: ${coreGradients.RO};
+          background: ${coreGradients[color]};
           clear:both;
           padding-right: 30px;
           padding-left: 30px;
@@ -53,7 +56,7 @@ class elementsTag extends LitElement {
   render() {
     return html `
       <button>
-        ${this.styles()}
+        ${this.styles(this.color)}
         <y-icon name="${this.icon}"></y-icon>
         <span><slot></slot></span>
       </button>

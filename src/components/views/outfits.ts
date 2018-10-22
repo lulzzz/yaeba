@@ -1,7 +1,6 @@
-
-  import { LitElement, html } from '@polymer/lit-element';
-import { getState } from 'domain/store/main';
-import { mansoryBase, mansoryBrick } from 'styles/lib';
+import { LitElement, html } from '@polymer/lit-element';
+import { onClickNewOutfit } from 'domain/middleware/user'
+import { coreGradients } from 'styles/lib';
 
 class viewsTag extends LitElement {
   constructor() {
@@ -17,7 +16,9 @@ class viewsTag extends LitElement {
   }
   styles() {
     return html`
-      <style></style>
+      <style>
+
+      </style>
     `
   }
 
@@ -25,7 +26,11 @@ class viewsTag extends LitElement {
     return html `
       <div class="page">
         ${this.styles()}
-        <h3>outfits</h3>
+        <y-button icon="cart" color="GC" @click="${onClickNewOutfit}">New Outfit</y-button>
+        <div id="outfits">
+          <h3>your outfits</h3>
+          ...get outfits from firebase here
+        </div>
       </div>
     `
   }

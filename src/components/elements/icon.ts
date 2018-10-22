@@ -23,8 +23,10 @@ class Icon extends LitElement {
   }
   render() {
     const icon = this._getIcon();
-    icon.setAttribute('width', '100%');
-    icon.setAttribute('height', '100%');
+    if(icon){
+      icon.setAttribute('width', '100%');
+      icon.setAttribute('height', '100%');
+    }
     return html`${icon}`
   }
 }

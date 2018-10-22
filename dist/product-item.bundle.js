@@ -1,11 +1,11 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[1],{33:function(t,e,s){"use strict";s.r(e);var i=s(2);customElements.define("y-outfits",class extends i.a{constructor(){super()}static get properties(){return{}}styles(){return i["b"]`
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{36:function(t,e,s){"use strict";s.r(e);var i=s(2);customElements.define("y-outfits",class extends i.a{constructor(){super()}static get properties(){return{}}styles(){return i["b"]`
       <style></style>
     `}render(){return i["b"]`
       <div class="page">
         ${this.styles()}
         <h3>outfits</h3>
       </div>
-    `}})},34:function(t,e,s){"use strict";s.r(e);var i=s(2),o=s(7),r=s(6);customElements.define("y-product-item",class extends i.a{constructor(){super()}static get properties(){return{item:{type:Object}}}attributeChangedCallback(){this.render()}styles(t){return i["b"]`<style>
+    `}})},37:function(t,e,s){"use strict";s.r(e);var i=s(2),o=s(7),r=s(6);customElements.define("y-product-item",class extends i.a{constructor(){super()}static get properties(){return{item:{type:Object}}}attributeChangedCallback(){this.render()}styles(t){return i["b"]`<style>
       :host {
        background-image: url(${t});
         overflow:hidden;

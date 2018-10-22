@@ -11,7 +11,8 @@ import {
   updateDisplayName,
   updateAccessToken,
   updateEmail,
-  updatePhotoUrl
+  updatePhotoUrl,
+  updateCurrentPage
  } from 'domain/store/reducers';
 import { getState } from '../store/main';
 import { getProducts } from './network';
@@ -22,6 +23,7 @@ export function onBoarding(step: string){
 }
 export function onClickSetGender(gender: string){
   updateGender(gender);
+  //TODO check this, shouldn't it be updateCurrentPage
   page('/create');
 }
 export function onLocationChoice(location:string) {
@@ -71,4 +73,8 @@ export function onAuthChangeSetUser(user){
   updateDisplayName(displayName)
   updatePhotoUrl(`${photoURL}?type=large`)
   updateEmail(email)
+}
+
+export function onClickNewOutfit() {
+  page('/create')
 }

@@ -43,7 +43,7 @@ class ViewTag extends LitElement {
         <h3>put your face <br>in the face hole</h3>
         ${this.photoUpload(user.photoURL)}
         <p contenteditable @input="${(e) => this.onChange(e, this.displayName)}">${user.displayName}</p>
-        <y-button icon="save" @click="${() => this.onSave(this.displayName)}">Save</y-button>
+        <y-button icon="save"  color="RO" @click="${() => this.onSave(this.displayName)}">Save</y-button>
         </div>
         </div>
         <style>

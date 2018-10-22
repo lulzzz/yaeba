@@ -41,14 +41,18 @@ class CustomTag extends LitElement {
       case 'PAYINFO':
         return html`<y-pay-info .state='${this.state}'><y-pay-info>`
       case 'UPLOAD':
+        import(/* webpackChunkName: "upload" */'components/views/onboarding/upload');
         return html`<y-upload .state='${this.state}'></y-upload>`
       case 'LOGIN':
         return html`<y-login .state='${this.state}'></y-login>`
       case 'ADD':
+        import(/* webpackChunkName: "product-item" */'components/elements/product-item')
+        import(/* webpackChunkName: "add" */'components/views/add');
       return html`<y-add .state='${this.state}'></y-add>`;
       case 'SEARCH':
         return html`<y-search .state='${this.state}'></y-search>`
       case 'CREATE':
+        import(/* webpackChunkName: "create" */'components/views/create');
         return html`<y-create .state='${this.state}'></y-create>`
     }
   }

@@ -16,15 +16,12 @@ const SPLASH = (ctx, next) => {
 const LOGIN = (ctx, next) => {
   //Check if logged in
   checkUserLogin((user) => {
-    setUserCookie(user);
-    updateCurrentPage('OUTFITS');
+    updateCurrentPage('UPLOAD');
   },() => {})
 }
 const ADD = (ctx, next) => {
   onloadGetProducts();
   //Set default view
-  import(/* webpackChunkName: "product-item" */'components/elements/product-item')
-  import(/* webpackChunkName: "add" */'components/views/add');
   updateCurrentPage('ADD');
  }
 const ADD_VIEW = (ctx, next) => {
@@ -34,11 +31,9 @@ console.log(ctx.params.view);
 updateCurrentPage('ADD');
 }
 const CREATE = (ctx, next) => {
-  import(/* webpackChunkName: "create" */'components/views/create');
   updateCurrentPage('CREATE');
 }
 const ONBOARDING = (ctx, next) => {
-  import(/* webpackChunkName: "upload" */'components/views/onboarding/upload');
   updateCurrentPage(ctx.params.sub.toUpperCase());
 }
 const OUTFITS = (ctx, next) => {
@@ -74,8 +69,8 @@ page('/orders/new', ORDERS_NEW)
 export default function startRouters() {
  page.start();
  checkUserLogin((user) => {
-  setUserCookie(user);
   updateCurrentPage('OUTFITS');
+  onAuthChangeSetUser(user);
 },() => {
   updateCurrentPage('LOGIN')
 });
