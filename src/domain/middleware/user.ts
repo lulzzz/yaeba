@@ -7,7 +7,11 @@ import {
   updateCreationLegs,
   updateCreationFeet,
   updateAdditionLocation,
-  updateProducts
+  updateProducts,
+  updateDisplayName,
+  updateAccessToken,
+  updateEmail,
+  updatePhotoUrl
  } from 'domain/store/reducers';
 import { getState } from '../store/main';
 import { getProducts } from './network';
@@ -60,4 +64,11 @@ export function addAddtion(val) {
     default:
       break;
   }
+}
+
+export function onAuthChangeSetUser(user){
+  const { displayName, photoURL, email } = user;
+  updateDisplayName(displayName)
+  updatePhotoUrl(`${photoURL}?type=large`)
+  updateEmail(email)
 }

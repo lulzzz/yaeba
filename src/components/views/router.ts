@@ -1,7 +1,6 @@
 import { LitElement, html, property } from '@polymer/lit-element';
 import { getState } from 'domain/store/main';
-import { updateProducts } from 'domain/store/reducers';
-
+import { updateCurrentPage } from 'domain/store/reducers';
 
 
 
@@ -14,6 +13,7 @@ class CustomTag extends LitElement {
   constructor() {
     super();
     this.state = getState();
+
   }
 
   static get properties() {
@@ -30,6 +30,9 @@ class CustomTag extends LitElement {
   }
   _html(currentPage){
     switch (currentPage) {
+      case 'SPLASH':
+        import(/* webpackChunkName: "splash" */'components/views/splash');
+        return html`<y-splash></y-splash>`
       case 'OUTFITS':
         import(/* webpackChunkName: "product-item" */'components/views/outfits');
         return html`<y-outfits .state='${this.state}'></y-outfits>`;

@@ -1,6 +1,6 @@
 import { LitElement, html, svg } from '@polymer/lit-element';
 import { getState } from 'domain/store/main';
-import { onBoarding } from 'domain/middleware/user';
+import { onBoarding,  } from 'domain/middleware/user';
 import { coreGradients } from 'styles/lib';
 import { buttonBase } from 'styles/button';
 import { pageBase } from 'styles/page';

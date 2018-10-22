@@ -23,7 +23,7 @@ const defaultOutfit: outfit = {
 }
 
 const defaultState = {
-  currentPage:  'LOGIN',
+  currentPage:  'SPLASH',
   addition: {
     location: 'head',
     id: '',
@@ -53,6 +53,7 @@ const defaultState = {
     displayName: "",
     photoURL: "",
     refreshToken: "",
+    accessToken: "",
     creation: {...defaultOutfit},
     outfits: {...defaultOutfit},
     closets: {...defaultOutfit},

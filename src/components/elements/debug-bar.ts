@@ -30,7 +30,7 @@ class viewsTag extends LitElement {
         }
         </style>
         <div id="bar">
-        <button @click="${() => page('/')}">Login</button>
+        <button @click="${() => page('/')}">'</button>
         <button  @click="${() => page('/add')}">Add</button>
         <button  @click="${() => page('/create')}">Create</button>
         <button  @click="${() => page('/onboarding/gender')}">onboadring/</button>

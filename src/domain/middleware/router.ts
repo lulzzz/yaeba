@@ -1,18 +1,24 @@
 
 import { updateCurrentPage } from 'domain/store/reducers';
 import page from 'page';
-import { onloadGetProducts } from 'domain/middleware/user';
-import { isFirebaseLoggedIn } from './login';
+import { onloadGetProducts, onAuthChangeSetUser } from 'domain/middleware/user';
+import { checkUserLogin, setUserCookie } from './login';
 
+const SPLASH = (ctx, next) => {
+  console.log('Splash')
+  checkUserLogin((user) => {
+    updateCurrentPage('OUTFITS');
+    onAuthChangeSetUser(user)
+  },() => {
+    updateCurrentPage('LOGIN')
+  })
+}
 const LOGIN = (ctx, next) => {
   //Check if logged in
-  const user = isFirebaseLoggedIn();
-  if(user) {
-    //
+  checkUserLogin((user) => {
+    setUserCookie(user);
     updateCurrentPage('OUTFITS');
-  } else {
-    updateCurrentPage('LOGIN');
-  }
+  },() => {})
 }
 const ADD = (ctx, next) => {
   onloadGetProducts();
@@ -51,7 +57,8 @@ const ORDERS_NEW = (ctx, next) => {
   updateCurrentPage('ORDERS_NEW')
 }
 
-page('/', LOGIN)
+page('/', SPLASH)
+page('/login', LOGIN)
 page('/add', ADD)
 page('/add/:view', ADD_VIEW)
 page('/create', CREATE) //<- dub of outfit single
@@ -66,4 +73,10 @@ page('/orders/new', ORDERS_NEW)
 
 export default function startRouters() {
  page.start();
+ checkUserLogin((user) => {
+  setUserCookie(user);
+  updateCurrentPage('OUTFITS');
+},() => {
+  updateCurrentPage('LOGIN')
+});
 }

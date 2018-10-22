@@ -125,3 +125,12 @@ export function updateDisplayName(displayName: string) {
      }
    }));
 }
+export function updateAccessToken(accessToken: string) {
+  return store.swap(oldstate => ({
+    ...oldstate,
+       user: {
+       ...oldstate.user,
+       accessToken
+     }
+   }));
+}
