@@ -12,4 +12,6 @@ import 'components/elements/navbar';
 import 'components/elements/button';
 import 'components/elements/icon';
 import 'components/elements/debug-bar';
+import 'components/elements/navbar';
+
 

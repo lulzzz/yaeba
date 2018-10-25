@@ -35,7 +35,10 @@ class CustomTag extends LitElement {
         return html`<y-splash></y-splash>`
       case 'OUTFITS':
         import(/* webpackChunkName: "product-item" */'components/views/outfits');
-        return html`<y-outfits .state='${this.state}'></y-outfits>`;
+        return html`
+        <y-outfits .state='${this.state}'></y-outfits>
+        <y-navbar></y-navbar>
+        `;
       case 'GENDER':
         return html`<y-gender .state='${this.state}'></y-gender>`;
       case 'PAYINFO':
@@ -48,12 +51,18 @@ class CustomTag extends LitElement {
       case 'ADD':
         import(/* webpackChunkName: "product-item" */'components/elements/product-item')
         import(/* webpackChunkName: "add" */'components/views/add');
-      return html`<y-add .state='${this.state}'></y-add>`;
+      return html`
+      <y-add .state='${this.state}'></y-add>
+      <y-navbar></y-navbar>
+      `;
       case 'SEARCH':
         return html`<y-search .state='${this.state}'></y-search>`
       case 'CREATE':
         import(/* webpackChunkName: "create" */'components/views/create');
-        return html`<y-create .state='${this.state}'></y-create>`
+        return html`
+        <y-create .state='${this.state}'></y-create>
+        <y-navbar></y-navbar>
+        `
     }
   }
 
