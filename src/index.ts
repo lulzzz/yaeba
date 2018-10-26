@@ -10,5 +10,6 @@ function _render(){
   document.getElementById('main').firstElementChild.setAttribute('currentPage', state.currentPage);
 }
 morphdom(document.getElementById('main').firstElementChild, `<y-router></y-router>`);
+if ((module as any).hot) (module as any).hot.accept('index.ts', _render);
 store.addWatch('renderLoop', _render)
 startRouters();

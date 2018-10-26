@@ -61,7 +61,6 @@ class ViewTag extends LitElement {
     return html`
       <div class="page">
         ${this.styles()}
-        <p>Choose a body part</p>
         ${this.outfit(creation)}
         ${this.model(gender)}
       </div>
@@ -72,6 +71,7 @@ class ViewTag extends LitElement {
       ${pageBase()}
       .page {
         overflow:hidden;
+        /* background: #fff; */
       }
       p {
         font-weight: 800;
@@ -87,6 +87,10 @@ class ViewTag extends LitElement {
       }
       .create {
          height: 90vh;
+         background: #fff;
+         border-top-left-radius:30px;
+         border-top-right-radius:30px;
+
          max-width: 410px;
          width:100%;
          background-size:contain;

@@ -55,7 +55,7 @@ const defaultState = {
     refreshToken: "",
     accessToken: "",
     creation: {...defaultOutfit},
-    outfits: {...defaultOutfit},
+    outfits: [{...defaultOutfit}],
     closets: {...defaultOutfit},
   },
   products: []

@@ -4,6 +4,19 @@ import page from 'page';
 import { onloadGetProducts, onAuthChangeSetUser } from 'domain/middleware/user';
 import { checkUserLogin, setUserCookie } from './login';
 
+export const ROUTES = {
+  OUTFITS: '/outfits',
+  LOGIN: '/login',
+  UPLOAD: '/onboarding/upload',
+  ADD: '/add',
+  CREATE: '/create',
+  ORDERS: '/orders',
+  USER: '/user',
+  FEED: 'feed/fashion',
+  FEED_MUSIC: '/feed/music',
+  LIKES: '/likes'
+}
+
 const SPLASH = (ctx, next) => {
   console.log('Splash')
   checkUserLogin((user) => {
@@ -51,7 +64,11 @@ const ORDERS = (ctx, next) => {
 const ORDERS_NEW = (ctx, next) => {
   updateCurrentPage('ORDERS_NEW')
 }
-
+const ANY = (ctx, next) => {
+  console.log(ctx);
+  updateCurrentPage(ctx.params.route.toUpperCase())
+}
+page('/:route', ANY)
 page('/', SPLASH)
 page('/login', LOGIN)
 page('/add', ADD)
@@ -68,10 +85,4 @@ page('/orders/new', ORDERS_NEW)
 
 export default function startRouters() {
  page.start();
- checkUserLogin((user) => {
-  updateCurrentPage('OUTFITS');
-  onAuthChangeSetUser(user);
-},() => {
-  updateCurrentPage('LOGIN')
-});
 }

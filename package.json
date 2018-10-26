@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/stagfoo/yaeba#readme",
   "dependencies": {
-    "@polymer/lit-element": "^0.6.1",
+    "@polymer/lit-element": "^0.6.2",
     "@types/js-cookie": "^2.2.0",
     "@types/node": "^10.10.1",
     "@vaadin/router": "^1.1.0",

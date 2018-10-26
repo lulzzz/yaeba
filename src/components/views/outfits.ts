@@ -2,16 +2,15 @@ import { LitElement, html } from '@polymer/lit-element';
 import { coreGradients } from 'styles/lib';
 
 class viewsTag extends LitElement {
+  state: any
+
   constructor() {
     super();
   }
-
-  // attributeChangedCallback() {
-  //   this.render();
-  // }
-
   static get properties() {
-    return {};
+    return {
+      state: { type: Object },
+    };
   }
   styles() {
     return html`
@@ -23,15 +22,17 @@ class viewsTag extends LitElement {
       </style>
     `
   }
-// @click="${onClickNewOutfit}"
+  fragementOutfits(item) {
+    return html`<div><span>${item.name}</span></div>`
+  }
   render() {
+    const { user } = this.state;
     return html `
       <div class="page">
         ${this.styles()}
-        <y-button icon="cart" color="GC" >New Outfit</y-button>
         <div id="outfits">
           <h3>your outfits</h3>
-          ...get outfits from firebase here
+            ${user.outfits.map((i) => this.fragementOutfits(i))}
         </div>
       </div>
     `

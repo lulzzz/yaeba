@@ -37,7 +37,7 @@ class CustomTag extends LitElement {
         import(/* webpackChunkName: "product-item" */'components/views/outfits');
         return html`
         <y-outfits .state='${this.state}'></y-outfits>
-        <y-navbar></y-navbar>
+        <y-navbar active="${currentPage}"></y-navbar>
         `;
       case 'GENDER':
         return html`<y-gender .state='${this.state}'></y-gender>`;
@@ -52,8 +52,8 @@ class CustomTag extends LitElement {
         import(/* webpackChunkName: "product-item" */'components/elements/product-item')
         import(/* webpackChunkName: "add" */'components/views/add');
       return html`
-      <y-add .state='${this.state}'></y-add>
-      <y-navbar></y-navbar>
+        <y-add .state='${this.state}'></y-add>
+        <y-navbar active="${currentPage}"></y-navbar>
       `;
       case 'SEARCH':
         return html`<y-search .state='${this.state}'></y-search>`
@@ -61,7 +61,13 @@ class CustomTag extends LitElement {
         import(/* webpackChunkName: "create" */'components/views/create');
         return html`
         <y-create .state='${this.state}'></y-create>
-        <y-navbar></y-navbar>
+        <y-navbar view="${currentPage}" active="${currentPage}"></y-navbar>
+        `
+      default:
+        return html`
+          <h3>${currentPage}</h3>
+        <y-navbar active="${currentPage}"></y-navbar>
+
         `
     }
   }
